@@ -56,3 +56,41 @@ Para el análisis se utilizan los siguientes datasets:
 -   [Comunas de la Ciudad de Buenos Aires](https://data.buenosaires.gob.ar/dataset/comunas)
 -   [Información de los contactos realizados al Sistema Único de Atención Ciudadana (SUACI)](https://data.buenosaires.gob.ar/sv/dataset/sistema-unico-atencion-ciudadana) [^1]
 -   [Arbolado público lineal](https://data.buenosaires.gob.ar/sv/dataset/arbolado-publico-lineal)
+
+```{r Carga de BBDD, echo=TRUE, message=FALSE, warning=FALSE}
+# ---- CABA ----
+# Comunas que componen la CABA
+comunas <- st_read("data/comunas.geojson",
+                         stringsAsFactors = TRUE,
+                         options = "ENCODING=UTF-8")
+# ---- SUACI ----
+# SUACI 2022
+suaci_2022 <- read.csv("data/suaci_2022_arbolado.csv",
+                       stringsAsFactors = TRUE,
+                       encoding = "UTF-8")%>%
+  clean_names()
+
+# SUACI 2021
+suaci_2021 <- read.csv("data/suaci_2021_arbolado.csv",
+                       stringsAsFactors = TRUE,
+                       encoding = "UTF-8")%>%
+  clean_names()
+
+# SUACI 2020
+suaci_2020 <- read.csv("data/suaci_2020_arbolado.csv",
+                       stringsAsFactors = TRUE,
+                       encoding = "UTF-8")%>%
+  clean_names()
+
+# SUACI 2019
+suaci_2019 <- read.csv("data/suaci_2019_arbolado.csv",
+                       stringsAsFactors = TRUE,
+                       encoding = "UTF-8")%>%
+  clean_names()
+
+# ---- ARBOLADO ----
+arbolado_lineal <- read.csv("data/arbolado-publico-lineal-2017-2018.csv",
+                           stringsAsFactors = TRUE,
+                           encoding = "latin1")%>%
+  clean_names()
+```

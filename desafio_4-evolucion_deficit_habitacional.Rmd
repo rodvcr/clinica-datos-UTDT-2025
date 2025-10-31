@@ -1,0 +1,58 @@
+---
+title: "Trabajo Practico Nº 1 - Consigna 2: Patrones Espaciales y Temporales"
+author: "*María Rosario Dávila Carrera, Camila Ailín Vila, Facundo Gonzalez Cura*"
+date: "Clinica de Datos | UTDT, 2025"
+output: 
+  html_document:
+    theme: flatly
+    toc: true            # Activa el Table of Contents -> Indice
+    toc_float: true      # Indice flotante a la izquierda
+    collapsed: false     # Contraccion de la tabla de contenidos flotante
+    smooth_scroll: false # Animacion de los desplazamientos de tabla
+    code_folding: hide
+    lang: ES-AR
+---
+# ¿Construir o mejorar? El mapa que define la política de vivienda en Argentina.
+
+### Objetivo del Análisis
+
+El objetivo general es analizar la magnitud y la evolución del déficit habitacional en Argentina, utilizando los datos de los Censos 2010 y 2022. Buscamos ir más allá del dato nacional para identificar las diferencias provinciales, distinguiendo el **déficit cuantitativo** (la insuficiencia en el stock de viviendas) del **déficit cualitativo** (viviendas con condiciones inadecuadas). El fin último es generar un diagnóstico preciso que sirva como insumo para el diseño de políticas públicas de vivienda y planificación urbana  focalizadas territorialmente.
+
+Se pretende:
+
+-   **Medir la magnitud total del déficit** (cuantitativo y cualitativo) **y su evolución** a nivel nacional entre 2010 y 2022.
+-   **Mapear la distribución territorial del déficit** por provincias, identificando las regiones más críticas.
+-   **Descomponer el déficit cualitativo para entender sus causas principales: hacinamiento, materiales inadecuados y falta de servicios básicos (agua y cloaca).
+-   Comparar el crecimiento de la población y los hogares frente al crecimiento del parque de viviendas, para entender la brecha productiva.
+-   Analizar la relación entre el déficit habitacional y la presencia de barrios populares (ReNaBaP).
+
+## El Déficit Habitacional en Argentina
+
+XXX
+
+```{r Carga librerias, echo=TRUE, message=FALSE, warning=FALSE}
+#---- Cargar librerías ----
+library(tidyverse)
+library(sf)
+library(scales)
+library(ggmap)
+library(ggspatial)
+library(knitr) 
+library(gt) 
+library(patchwork)
+library(janitor)
+library(gganimate)
+library(gifski)
+
+#---- Paleta de colores ----
+library(RColorBrewer)
+pastel <- brewer.pal(n = 8, name = "RdYlBu")
+```
+
+### Datasets
+
+Para el análisis se utilizan los siguientes datasets:
+
+-   [Comunas de la Ciudad de Buenos Aires](https://data.buenosaires.gob.ar/dataset/comunas)
+-   [Información de los contactos realizados al Sistema Único de Atención Ciudadana (SUACI)](https://data.buenosaires.gob.ar/sv/dataset/sistema-unico-atencion-ciudadana) [^1]
+-   [Arbolado público lineal](https://data.buenosaires.gob.ar/sv/dataset/arbolado-publico-lineal)

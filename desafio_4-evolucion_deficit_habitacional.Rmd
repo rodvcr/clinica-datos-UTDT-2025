@@ -88,9 +88,4 @@ suaci_2019 <- read.csv("data/suaci_2019_arbolado.csv",
                        encoding = "UTF-8")%>%
   clean_names()
 
-# ---- ARBOLADO ----
-arbolado_lineal <- read.csv("data/arbolado-publico-lineal-2017-2018.csv",
-                           stringsAsFactors = TRUE,
-                           encoding = "latin1")%>%
-  clean_names()
 ```

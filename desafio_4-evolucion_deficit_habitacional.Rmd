@@ -86,6 +86,5 @@ suaci_2020 <- read.csv("data/suaci_2020_arbolado.csv",
 suaci_2019 <- read.csv("data/suaci_2019_arbolado.csv",
                        stringsAsFactors = TRUE,
                        encoding = "UTF-8")%>%
-  clean_names()
-
+  
 ```
